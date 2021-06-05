@@ -131,6 +131,16 @@ body, html {
     border: 3px solid rgb(19, 20, 36);
 }
 
+.btn-create-plan {
+    color: rgb(241, 118, 118);
+    font-size: 20px;
+    font-weight: bold;
+    width: 300px;
+    border: 3px solid rgb(241, 118, 118);
+    background-color: rgb(243, 236, 221);
+    border-radius: .75rem!important;
+}
+
 .menu-logo {
     width: 70px;
     z-index: 60;
