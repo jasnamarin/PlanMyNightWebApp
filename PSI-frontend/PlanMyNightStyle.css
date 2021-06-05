@@ -1,6 +1,13 @@
 body, html {
     height: 100%;
     margin: 0;
+    background-color: rgb(19, 20, 36);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 .background {
@@ -161,4 +168,22 @@ body, html {
 }
 .header {
     color: whitesmoke;
+}
+
+p {
+    font-size: xx-large;
+    margin: 7%;
+    margin-top: 2.5%;
+    margin-bottom: 4%;
+    text-align: center;
+    color: #FFFF;
+}
+
+.enhanced-text {
+    color: #F17676;
+}
+
+.signup-flat {
+    width: 350px;
+    font-size: x-large;
 }
