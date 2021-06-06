@@ -20,7 +20,8 @@ body, html {
 }
 
 .navbar-brand img {
-    width: 50px;
+    width: 250px;
+    margin-left: 50px;
 }
 
 .nav-link {
