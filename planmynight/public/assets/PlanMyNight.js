@@ -1,5 +1,5 @@
 function toSignUpPage() {
-    window.location.href = "signUpPage.html";
+    window.location.href = "SignUp";
 }
 
 function mapViewOnLoad() {
