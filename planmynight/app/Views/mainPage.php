@@ -42,7 +42,7 @@
                 </nav>
             </div>
         </div>
-    
+    </div>
     <div class="container-fluid">
         <a href="javascript:void(0);"><img src="../../assets/PlanMyNightPics/menu-logo.png" id="user-info-logo" alt="" class="menu-logo" onclick="showUserInfo()"></a>
         
