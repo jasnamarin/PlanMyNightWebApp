@@ -20,8 +20,8 @@
             <div class="col-sm-12">
                 <nav class="navbar navbar-expand-sm">
                     <a class="navbar-brand" href="Main">
-                        <img src="../../assets/PlanMyNightPics/logo.png" alt="">
-                        <a class="nav-link logotype" href="Main">Plan My Night</a>
+                        <img src="../../assets/PlanMyNightPics/planMyNightLogo.png" alt="">
+                        <a class="nav-link logotype" href="Main"></a>
                     </a>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
