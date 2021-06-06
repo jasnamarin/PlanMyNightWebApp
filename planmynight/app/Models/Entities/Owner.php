@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Owner
  *
  * @ORM\Table(name="owner", uniqueConstraints={@ORM\UniqueConstraint(name="jmbg_UNIQUE", columns={"jmbg"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Models\Repositories\OwnerRepo")
  */
 class Owner
 {
@@ -44,6 +44,38 @@ class Owner
      * })
      */
     private $iduser;
+
+    function getJmbg(): string {
+        return $this->jmbg;
+    }
+
+    function getLicense(): string {
+        return $this->license;
+    }
+
+    function getAddress(): string {
+        return $this->address;
+    }
+
+    function getIduser(): \App\Models\Entities\User {
+        return $this->iduser;
+    }
+
+    function setJmbg(string $jmbg): void {
+        $this->jmbg = $jmbg;
+    }
+
+    function setLicense(string $license): void {
+        $this->license = $license;
+    }
+
+    function setAddress(string $address): void {
+        $this->address = $address;
+    }
+
+    function setIduser(\App\Models\Entities\User $iduser): void {
+        $this->iduser = $iduser;
+    }
 
 
 }

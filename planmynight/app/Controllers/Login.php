@@ -19,9 +19,10 @@ class Login extends BaseController
                 return view("loginPage", ["errors"=>$this->validator->getErrors()]);
 
             
-            $existingUser = $this->doctrine->em->getRepository(Entities\User::class)->findOneBy(['username'=>$username]);
-            if ($existingUser != null) {
-                if ($password == $existingUser->getPassword()) {
+            $user = $this->doctrine->em->getRepository(Entities\User::class)->findOneBy(['username'=>$username]);
+            if ($user != null) {
+                if ($password == $user->getPassword()) {
+                    $this->session->set('user', $user);
                     return redirect()->to(site_url("Main"));
                 } 
                 return view("loginPage", ["error"=>"Password is incorrect."]);

@@ -12,7 +12,10 @@ class Main extends BaseController
                 return redirect()->to(site_url("Login"));
             }
             else{
-		echo view("mainPage");
+		$name = $user->getName();
+                $surname = $user->getSurname();
+                $namesurname = "$name $surname";
+                echo view("mainPage", ["namesurname"=>$namesurname]);
             }
 	}
 }

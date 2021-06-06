@@ -49,6 +49,12 @@
                                 <br><br>
 
                                 Up to how much money do you want to spend in total? (In RSD) &nbsp;&nbsp;&nbsp; <input type="number" name="plan_budget" id="plan_budget">
+                                
+                            <?php                         
+                            if (!empty($errors['plan_budget'])) {
+                            echo "This field is required.";
+                            }
+                            ?>
 
                                 <br><br>
 
@@ -73,12 +79,27 @@
                             <div class="col-sm-12">
                                 <br><br>
                                 At what time do you wish to arrive? &nbsp;&nbsp;&nbsp; <input type="time" name="plan_time" id="plan_time">
+                                
+                                <?php                         
+                                if (!empty($errors['plan_time'])) {
+                                echo "This field is required.";
+                                }
+                                ?>
                             </div>
                             <div class="col-sm-12">
                                 <br><br>
                                 At what time do you wish to go home? &nbsp;&nbsp;&nbsp; <input type="time" name="plan_time_end" id="plan_time_end">
                             </div>
                         </div>
+                            
+                            
+                        <?php 
+                                  
+                        if (isset($error)) {
+                            echo $error;
+                        }
+
+                        ?>
                         <div class="row">
                             <div class="col offset-8" style="margin-top: 100px;">
                                 

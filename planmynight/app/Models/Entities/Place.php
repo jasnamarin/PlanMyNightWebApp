@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Place
  *
  * @ORM\Table(name="place", uniqueConstraints={@ORM\UniqueConstraint(name="idplace_UNIQUE", columns={"idplace"})}, indexes={@ORM\Index(name="id_user_idx", columns={"iduser"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Models\Repositories\PlaceRepo")
  */
 class Place
 {
@@ -51,6 +51,46 @@ class Place
      * })
      */
     private $iduser;
+    function getIdplace(): int {
+        return $this->idplace;
+    }
+
+    function getName(): string {
+        return $this->name;
+    }
+
+    function getAddress(): string {
+        return $this->address;
+    }
+
+    function getPricing(): string {
+        return $this->pricing;
+    }
+
+    function getIduser(): \App\Models\Entities\Owner {
+        return $this->iduser;
+    }
+
+    function setIdplace(int $idplace): void {
+        $this->idplace = $idplace;
+    }
+
+    function setName(string $name): void {
+        $this->name = $name;
+    }
+
+    function setAddress(string $address): void {
+        $this->address = $address;
+    }
+
+    function setPricing(string $pricing): void {
+        $this->pricing = $pricing;
+    }
+
+    function setIduser(\App\Models\Entities\Owner $iduser): void {
+        $this->iduser = $iduser;
+    }
+
 
 
 }

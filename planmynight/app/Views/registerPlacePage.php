@@ -19,7 +19,7 @@
          <div class="row">
             <div class="col-sm-12">
                 <nav class="navbar navbar-expand-sm">
-                    <a class="navbar-brand" href="Main">
+                    <a class="navbar-brand" href="#">
                         <img src="../../assets/PlanMyNightPics/planMyNightLogo.png" alt="">
                         <a class="nav-link logotype" href="Main"></a>
                     </a>
@@ -40,6 +40,8 @@
                 </nav>
             </div>
         </div>
+
+        <form method="post" action="<?= base_url('RegisterPlace/submit') ?>">
         <div class="row h-100">
             <div class="col-sm-12 vertical-margin">
                 <div class="card card-block signup-card">
@@ -48,32 +50,80 @@
                             <div class="col-sm-12">
                                 <br><br>
 
-                                Unique Master Personal Number: &nbsp;&nbsp;&nbsp; <input type="text" name="" id="JMBG">
+                                Unique Master Personal Number: &nbsp;&nbsp;&nbsp; <input type="text" name="UMPN" id="UMPN"
+                                                                                         value = "<?= set_value("UMPN") ?>">
+                                <?php                         
+                                    if (!empty($errors['UMPN'])) {
+                                        echo "<br>";
+                                        echo "This field is required.";
+                                    }
+                                ?>
 
                                 <br><br>
 
-                                Business Registers Agency Number: &nbsp;&nbsp;&nbsp; <input type="text" name="" id="APR">
+                                Business Registers Agency Number: &nbsp;&nbsp;&nbsp; <input type="text" name="APR" id="APR"
+                                                                                            value = "<?= set_value("APR") ?>">
+                                <?php                         
+                                    if (!empty($errors['APR'])) {
+                                        echo "<br>";
+                                        echo "This field is required.";
+                                    }
+                                ?>
 
                                 <br><br>
 
-                                Address: &nbsp;&nbsp;&nbsp; <input type="text" name="" id="Place_address">
+                                Address: &nbsp;&nbsp;&nbsp; <input type="text" name="address" id="address"
+                                                                   value = "<?= set_value("address") ?>">
+                                <?php                         
+                                    if (!empty($errors['address'])) {
+                                        echo "<br>";
+                                        echo "This field is required.";
+                                    }
+                                ?>
 
                                 <br><br>
 
-                                Place Name: &nbsp;&nbsp;&nbsp; <input type="text" name="" id="Place_address">
+                                Place Name: &nbsp;&nbsp;&nbsp; <input type="text" name="Place_name" id="Place_name"
+                                                                      value = "<?= set_value("Place_name") ?>">
+                                <?php                         
+                                    if (!empty($errors['Place_name'])) {
+                                        echo "<br>";
+                                        echo "This field is required.";
+                                    }
+                                ?>
 
                                 <br><br>
 
-                                Place Address: &nbsp;&nbsp;&nbsp; <input type="text" name="" id="Place_address">
+                                Place Address: &nbsp;&nbsp;&nbsp; <input type="text" name="Place_address" id="Place_address"
+                                                                         value = "<?= set_value("Place_address") ?>">
+                                <?php                         
+                                    if (!empty($errors['Place_address'])) {
+                                        echo "<br>";
+                                        echo "This field is required.";
+                                    }
+                                ?>
 
                                 <br><br>
 
-                                Pricing: &nbsp;&nbsp;&nbsp; <input type="text" name="" id="Place_address">
+                                Pricing: &nbsp;&nbsp;&nbsp; <input type="text" name="pricing" id="pricing"
+                                                                   value = "<?= set_value("pricing") ?>">
+                                <?php                         
+                                    if (!empty($errors['pricing'])) {
+                                        echo "<br>";
+                                        echo "This field is required.";
+                                    }
+                                ?>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col offset-8" style="margin-top: 100px;">
-
+                                <?php 
+                                  
+                                    if (isset($error)) {
+                                        echo $error;
+                                    }
+                                
+                                ?>
                                 <button class="btn btn-signup rounded-lg" onclick="registerPlace()">Request register!</button>
                             </div>
                         </div>
@@ -82,5 +132,6 @@
             </div>
         </div>
     </div>
+    </form>
 </body>
 </html>

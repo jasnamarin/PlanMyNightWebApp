@@ -61,12 +61,12 @@ class PlanQuestionaire extends BaseController
             
             $preferences = new Entities\Preferences();
             
-            $preferences.setIduser($existingUser.getIduser());
-            $preferences.setMusictype($music);
-            $preferences.setMoney($money);
-            $preferences.setChangelocation($afterparty);
-            $preferences.setPartyStart($plan_time);
-            $preferences.setPartyEnd($plan_time_end);
+            $preferences->setIduser($existingUser.getIduser());
+            $preferences->setMusictype($music);
+            $preferences->setMoney($money);
+            $preferences->setChangelocation($afterparty);
+            $preferences->setPartyStart($plan_time);
+            $preferences->setPartyEnd($plan_time_end);
             
             $this->doctrine->em->persist($preferences);
             $this->doctrine->em->flush();
