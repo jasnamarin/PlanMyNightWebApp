@@ -46,11 +46,7 @@
                             <div class="col-sm-12">
                                 <br><br>
 
-                                For how many people are we planning? &nbsp;&nbsp;&nbsp;<input type="number" name="" id="plan_personnumber">
-
-                                <br><br>
-
-                                Up to how much money do you want to spend in total? (In RSD) &nbsp;&nbsp;&nbsp; <input type="number" name="" id="plan_budget">
+                                Up to how much money do you want to spend in total? (In RSD) &nbsp;&nbsp;&nbsp; <input type="number" name="plan_budget" id="plan_budget">
 
                                 <br><br>
 
@@ -58,23 +54,27 @@
                             </div>
                             <div class="col-sm-2">
                                 <br>
-                                live music <input type="checkbox" name="" id="plan_cb_music">
+                                Live music <input type="checkbox" name="music_live" id="music_live">
                                 <br><br>
-                                snacks <input type="checkbox" name="" id="plan_cb_snacks">
+                                Pop <input type="checkbox" name="music_pop" id="music_pop">
                                 <br><br>
-                                cocktails <input type="checkbox" name="" id="plan_cb_cocktails">
+                                Techno/Electronic <input type="checkbox" name="music_techno" id="music_techno">
                             </div>
                             <div class="col-sm-2">
                                 <br>
-                                smoking inside <input type="checkbox" name="" id="plan_cb_smoking">
+                                R'n'B <input type="checkbox" name="music_rnb" id="music_rnb">
                                 <br><br>
-                                pre-drinking <input type="checkbox" name="" id="plan_cb_predrink">
+                                Jazz <input type="checkbox" name="music_jazz" id="music_jazz">
                                 <br><br>
-                                after party in town <input type="checkbox" name="" id="plan_cb_afterparty">
+                                After party in town <input type="checkbox" name="afterparty" id="afterparty">
                             </div>
                             <div class="col-sm-12">
                                 <br><br>
-                                At what time do you wish to arrive? &nbsp;&nbsp;&nbsp; <input type="time" name="" id="plan_time">
+                                At what time do you wish to arrive? &nbsp;&nbsp;&nbsp; <input type="time" name="plan_time" id="plan_time">
+                            </div>
+                            <div class="col-sm-12">
+                                <br><br>
+                                At what time do you wish to go home? &nbsp;&nbsp;&nbsp; <input type="time" name="plan_time_end" id="plan_time_end">
                             </div>
                         </div>
                         <div class="row">
