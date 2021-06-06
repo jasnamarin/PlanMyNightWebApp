@@ -18,7 +18,7 @@ function mapViewOnLoad() {
 }
 
 function login() {
-    window.location.href = "main.html";
+    window.location.href = "Main";
 }
 
 function makePlan() {
