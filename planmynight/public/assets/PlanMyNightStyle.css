@@ -1,0 +1,153 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    background-color: rgb(19, 20, 36);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.navbar-brand img {
+    width: 250px;
+    margin-left: 50px;
+}
+
+.nav-link {
+    color: whitesmoke !important;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.nav-link-user {
+    color: whitesmoke !important;
+    font-size: 35px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-right: 20px;
+}
+
+.user-card {
+    align-items: center;
+    width: 350px;
+    height: 700px;
+}
+
+.navbar-nav > li {
+    margin-left: 130px;
+}
+
+.logotype {
+    font-size: 32px;
+    font-family: cursive;
+}
+
+.vertical-center {
+    margin-top: 150px;
+}
+
+.vertical-margin {
+    margin-top: 50px;
+}
+
+.card {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: whitesmoke;
+    margin: 0 auto;
+    background-image: linear-gradient(rgb(241, 118, 118), rgb(19, 20, 36));
+    border-radius: .75rem!important;
+    border: 3px solid rgb(19, 20, 36);
+}
+
+.rounded {
+    border-radius: .75rem!important;
+}
+
+
+.login-card {
+    align-items: center;
+    width: 350px;
+}
+
+.signup-card {
+    width: 1200px;
+}
+
+.input {
+    width: 220px;
+}
+
+.btn-login {
+    color: rgb(241, 118, 118);
+    font-size: 20px;
+    font-weight: bold;
+    width: 150px;
+    border: 3px solid whitesmoke;
+    background-color: rgb(19, 20, 36);
+    border-radius: .75rem!important;
+}
+
+.btn-signup {
+    color: rgb(241, 118, 118);
+    font-size: 20px;
+    font-weight: bold;
+    width: 150px;
+    border: 3px solid rgb(241, 118, 118);
+    background-color: rgb(243, 236, 221);
+    border-radius: .75rem!important;
+}
+
+.back {
+    width: 50px;
+}
+
+.map-canvas {
+    height: 90%;
+    position: absolute;
+    top: 80px; 
+    bottom: -200px; 
+    left: 0; 
+    right: 0; 
+    z-index: 0;
+}
+
+.on-map {
+    z-index: 100;
+    position: relative;
+}
+
+.btn-plan {
+    z-index: 1;
+    position: absolute;
+    top: 700px;
+    left: 50px;
+    font-family: cursive;
+    font-size: 40px;
+    width: 300px;
+    background-color: rgb(241, 118, 118);
+    color: rgb(19, 20, 36);
+    border: 3px solid rgb(19, 20, 36);
+}
+
+.menu-logo {
+    width: 70px;
+    z-index: 60;
+    position: absolute;
+    top: 120px;
+    left: 1300px;
+}
+
+.menu-logo-pic {
+    width: 70px;
+}
+
+.user-info {
+    z-index: 70;
+    position: absolute;
+    display: none;
+    margin-top: 10px;
+}
+.header {
+    color: whitesmoke;
+}
