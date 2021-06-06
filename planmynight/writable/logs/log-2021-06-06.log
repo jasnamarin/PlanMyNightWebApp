@@ -1,0 +1,6 @@
+CRITICAL - 2021-06-06 09:43:36 --> Cannot declare class App\Controllers\Login, because the name is already in use
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-06-06 10:48:00 --> Cannot declare class App\Controllers\Login, because the name is already in use
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
