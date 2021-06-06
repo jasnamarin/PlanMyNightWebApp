@@ -42,6 +42,8 @@
             <div class="col-sm-12 vertical-margin">
                 <div class="card card-block signup-card">
                     <div class="container" style="height: 600px;">
+                        
+                        <form method="post" action="<?= base_url('PlanQuestionaire') ?>">
                         <div class="row">
                             <div class="col-sm-12">
                                 <br><br>
@@ -54,19 +56,19 @@
                             </div>
                             <div class="col-sm-2">
                                 <br>
-                                Live music <input type="checkbox" name="music_live" id="music_live">
+                                Live music <input type="checkbox" name="music_live" id="music_live" value="live">
                                 <br><br>
-                                Pop <input type="checkbox" name="music_pop" id="music_pop">
+                                Pop <input type="checkbox" name="music_pop" id="music_pop" value="pop">
                                 <br><br>
-                                Techno/Electronic <input type="checkbox" name="music_techno" id="music_techno">
+                                Techno/Electronic <input type="checkbox" name="music_techno" id="music_techno" value="techno">
                             </div>
                             <div class="col-sm-2">
                                 <br>
-                                R'n'B <input type="checkbox" name="music_rnb" id="music_rnb">
+                                R'n'B <input type="checkbox" name="music_rnb" id="music_rnb" value="rnb">
                                 <br><br>
-                                Jazz <input type="checkbox" name="music_jazz" id="music_jazz">
+                                Jazz <input type="checkbox" name="music_jazz" id="music_jazz" value="jazz">
                                 <br><br>
-                                After party in town <input type="checkbox" name="afterparty" id="afterparty">
+                                After party in town <input type="checkbox" name="afterparty" id="afterparty" value="1">
                             </div>
                             <div class="col-sm-12">
                                 <br><br>
@@ -80,9 +82,10 @@
                         <div class="row">
                             <div class="col offset-8" style="margin-top: 100px;">
                                 
-                                <button class="btn btn-create-plan rounded-lg" onclick="createPlan()">Show me my plans!</button>
+                                <button class="btn btn-create-plan rounded-lg" onclick="createPlan()" type="submit" formaction="<?= base_url('PlanQuestionaire/setPreferences') ?>">Show me my plans!</button>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
