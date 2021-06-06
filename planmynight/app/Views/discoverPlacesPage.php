@@ -19,7 +19,7 @@
 <body onload="mapViewOnLoad()">
     <div class="container-fluid background">
         
-        <div class="row">
+         <div class="row">
             <div class="col-sm-12">
                 <nav class="navbar navbar-expand-sm">
                     <a class="navbar-brand" href="Main">
@@ -31,10 +31,10 @@
                             <a class="nav-link" href="RegisterPlace">Register Place</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="DiscoverPlaces">Discover Places</a>
+                            <a class="nav-link" href="#">Discover Places</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Map View</a>
+                            <a class="nav-link" href="MapView">Map View</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="About">About</a>
@@ -43,6 +43,34 @@
                 </nav>
             </div>
         </div>
+        <div class="row h-100 background">
+            <div class="col-sm-4 vertical-margin">
+                <div class="card card-block login-card" style="height: 600px;">
+                    <div class="card-footer bg-transparent">
+                        <button class="btn btn-login rounded-lg">See details</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 vertical-margin">
+                <div class="card card-block login-card" style="height: 600px;">
+                    <div class="card-footer bg-transparent">
+                        <button class="btn btn-login rounded-lg">See details</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 vertical-margin">
+                <div class="card card-block login-card" style="height: 600px;">
+                    <div class="card-footer bg-transparent">
+                        <button class="btn btn-login rounded-lg">See details</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <br/><br/>
 
         <div class="row h-100">
             <div class="col-sm-4 vertical-margin">
@@ -53,9 +81,22 @@
                 </div>
             </div>
 
-            <div class="col vertical-margin">
-                <div id="map" style="width: 90%; height: 600px;"></div> 
+            <div class="col-sm-4 vertical-margin">
+                <div class="card card-block login-card" style="height: 600px;">
+                    <div class="card-footer bg-transparent">
+                        <button class="btn btn-login rounded-lg">See details</button>
+                    </div>
+                </div>
             </div>
+
+            <div class="col-sm-4 vertical-margin">
+                <div class="card card-block login-card" style="height: 600px;">
+                    <div class="card-footer bg-transparent">
+                        <button class="btn btn-login rounded-lg">See details</button>
+                    </div>
+                </div>
+            </div>
+            
         </div>
 
     </div>

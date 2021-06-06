@@ -18,21 +18,21 @@
             <div class="col-sm-12">
                 <nav class="navbar navbar-expand-sm">
                     <a class="navbar-brand" href="Login">
-                        <img src="../../assets/PlanMyNightPics/planMyNightLogo.png" alt="">
-                        <a class="nav-link logotype" href="loginPage.html"></a>
+                        <img src="../../assets/PlanMyNightPics/logo.png" alt="">
+                        <a class="nav-link logotype" href="Login">Plan My Night</a>
                     </a>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="registerPlace.html">Register Place</a>
+                            <a class="nav-link" href="RegisterPlace">Register Place</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Discover Places</a>
+                            <a class="nav-link" href="DiscoverPlaces">Discover Places</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="mapView.html">Map View</a>
+                            <a class="nav-link" href="MapView">Map View</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="About">About</a>
                         </li>
                     </ul>
                 </nav>

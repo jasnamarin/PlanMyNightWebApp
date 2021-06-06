@@ -146,3 +146,7 @@ Duplicate entry 'filipandric' for key 'username_UNIQUE'
 #12 C:\xampp\htdocs\planmynight\public\index.php(36): CodeIgniter\CodeIgniter->run()
 #13 C:\xampp\htdocs\planmynight\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(45): require_once('C:\\xampp\\htdocs...')
 #14 {main}
+CRITICAL - 2021-06-06 18:54:03 --> Call to undefined function CodeIgniter\locale_set_default()
+#0 C:\xampp\htdocs\planmynight\vendor\codeigniter4\framework\system\bootstrap.php(157): CodeIgniter\CodeIgniter->initialize()
+#1 C:\xampp\htdocs\planmynight\spark(45): require('C:\\xampp\\htdocs...')
+#2 {main}

@@ -14,16 +14,17 @@
 
     <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
     <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
-</head>
-<body onload="mapViewOnLoad()">
 
-    <div class="container-fluid on-map">    
+</head>
+<body>
+    <div class="container-fluid">
+        
          <div class="row">
             <div class="col-sm-12">
                 <nav class="navbar navbar-expand-sm">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="Main">
                         <img src="../../assets/PlanMyNightPics/logo.png" alt="">
-                        <a class="nav-link logotype" href="#">Plan My Night</a>
+                        <a class="nav-link logotype" href="Main">Plan My Night</a>
                     </a>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
@@ -36,36 +37,33 @@
                             <a class="nav-link" href="MapView">Map View</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="About">About</a>
+                            <a class="nav-link" href="#">About</a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </div>
-    
-    <div class="container-fluid">
-        <a href="javascript:void(0);"><img src="../../assets/PlanMyNightPics/menu-logo.png" id="user-info-logo" alt="" class="menu-logo" onclick="showUserInfo()"></a>
-        
-        <div class="col-sm-4 offset-8 user-info" id="user-info">
-            <div class="card card-block user-card">
-                <br>
-                <img src="../../assets/PlanMyNightPics/logo.png" alt="" class="menu-logo-pic">
-                <h1>Filip Andric</h1>
-                <br>
-                <a href="myPlans" class="nav-link-user">My plans</a>
-                <br>
-                <a href="planQuestionaire" class="nav-link-user">Preferences</a>
-                <br>
-                <a href="myRatings" class="nav-link-user">Ratings</a>
-                <br>
-                <a href="myPlaces" class="nav-link-user">My places</a>
-                <a href="javascript:void(0);"><img src="../../assets/PlanMyNightPics/back-arrow.png" alt="" class="back" style="margin-top: 150px;" onclick="hideUserInfo()"></a>
+
+        <div class="row">
+            <div class="col-12">
+                <p>Drinks with coworkers? Dinner date? Best rave in the city and the <br/> cheapest pre-game spot?</p>
+                <p class="enhanced-text">
+                    Whatever it is you're looking for, Plan My Night is here to help you find it.
+                </p>
+                <p>Fill in our questionnaire and get personalized night-out plans. <br/> Choose your favorite one and make the reservations with one click.</p>
+                <p>Organizing your evening outings has never been easier!</p>
             </div>
         </div>
 
-        <button class="btn btn-signup rounded-lg btn-plan" onclick="makePlan()">Plan my night</button>
-        
-        <div id="map" class="map-canvas"></div>   
+        <div class="row">
+            <div class="col-12 text-center">
+                <button class="btn btn-signup rounded-lg signup-flat" onclick="toSignUpPage()">Sign up to get your plans</button>
+            </div>
+            <div class="col">
+                <a href="loginPage.php"><img src="PlanMyNightPics/back-arrow.png" alt="" class="back"></a>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>

@@ -10,37 +10,37 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
     <title>Plan my night</title>
-    <link rel="stylesheet" href="PlanMyNightStyle.css">
-    <link rel="stylesheet" href="Ratings.css">
-    <script src="PlanMyNight.js"></script>
+    <link href="../../assets/PlanMyNightStyle.css" rel="stylesheet" type="text/css"/>
+    <link href="../../assets/Ratings.css" rel="stylesheet" type="text/css"/>
+    <script src="../../assets/PlanMyNight.js"></script>
 
     <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
     <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css" />
 
 </head>
 
-<body onload="mapViewOnLoad()">
+<body>
     <div class="container-fluid background">
 
-        <div class="row">
+         <div class="row">
             <div class="col-sm-12">
                 <nav class="navbar navbar-expand-sm">
-                    <a class="navbar-brand" href="loginPage.html">
-                        <img src="../../assets/PlanMyNightPics/planMyNightLogo.png" alt="">
-                        <a class="nav-link logotype" href="loginPage.html"></a>
+                    <a class="navbar-brand" href="Main">
+                        <img src="../../assets/PlanMyNightPics/logo.png" alt="">
+                        <a class="nav-link logotype" href="Main">Plan My Night</a>
                     </a>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Register Place</a>
+                            <a class="nav-link" href="RegisterPlace">Register Place</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Discover Places</a>
+                            <a class="nav-link" href="DiscoverPlaces">Discover Places</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="mapView.html">Map View</a>
+                            <a class="nav-link" href="MapView">Map View</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="About">About</a>
                         </li>
                     </ul>
                 </nav>
