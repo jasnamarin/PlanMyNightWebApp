@@ -3,19 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/PlanMyNightWebApp/planmynight/app/Views/registerPlace.php</file>
-            <file>file:/C:/xampp/htdocs/PlanMyNightWebApp/planmynight/app/Views/mapView.php</file>
-            <file>file:/C:/xampp/htdocs/PlanMyNightWebApp/planmynight/app/Controllers/SignUp.php</file>
-            <file>file:/C:/xampp/htdocs/PlanMyNightWebApp/planmynight/app/Controllers/Home.php</file>
-            <file>file:/C:/xampp/htdocs/PlanMyNightWebApp/planmynight/app/Views/loginPage.php</file>
-            <file>file:/C:/xampp/htdocs/PlanMyNightWebApp/planmynight/app/Views/placeDetails.php</file>
-            <file>file:/C:/xampp/htdocs/PlanMyNightWebApp/planmynight/app/Views/myRatings.php</file>
-            <file>file:/C:/xampp/htdocs/PlanMyNightWebApp/planmynight/app/Views/myPlaces.php</file>
-            <file>file:/C:/xampp/htdocs/PlanMyNightWebApp/planmynight/app/Controllers/BaseController.php</file>
-            <file>file:/C:/xampp/htdocs/PlanMyNightWebApp/planmynight/app/Views/main.php</file>
-            <file>file:/C:/xampp/htdocs/PlanMyNightWebApp/planmynight/app/Views/signupPage.php</file>
-            <file>file:/C:/xampp/htdocs/PlanMyNightWebApp/planmynight/public/assets/PlanMyNightStyle.css</file>
-            <file>file:/C:/xampp/htdocs/PlanMyNightWebApp/planmynight/app/Controllers/Login.php</file>
+            <file>file:/C:/xampp/htdocs/planmynight/app/Controllers/Main.php</file>
+            <file>file:/C:/xampp/htdocs/planmynight/app/Models/Entities/User.php</file>
+            <file>file:/C:/xampp/htdocs/planmynight/app/Views/mapViewPage.php</file>
+            <file>file:/C:/xampp/htdocs/planmynight/app/Views/loginPage.php</file>
+            <file>file:/C:/xampp/htdocs/planmynight/app/Views/signupPage.php</file>
+            <file>file:/C:/xampp/htdocs/planmynight/app/Views/mainPage.php</file>
+            <file>file:/C:/xampp/htdocs/planmynight/app/Controllers/SignUp.php</file>
+            <file>file:/C:/xampp/htdocs/planmynight/app/Controllers/Login.php</file>
         </group>
     </open-files>
 </project-private>
