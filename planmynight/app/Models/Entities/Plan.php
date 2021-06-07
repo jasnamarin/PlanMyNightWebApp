@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Plan
  *
  * @ORM\Table(name="plan", indexes={@ORM\Index(name="id_user_plan_idx", columns={"iduser"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Models\Repositories\PlanRepo")
  */
 class Plan
 {
@@ -37,6 +37,30 @@ class Plan
      * })
      */
     private $iduser;
+
+    function getIdplan(): int {
+        return $this->idplan;
+    }
+
+    function getDate(): \DateTime {
+        return $this->date;
+    }
+
+    function getIduser(): \App\Models\Entities\User {
+        return $this->iduser;
+    }
+
+    function setIdplan(int $idplan): void {
+        $this->idplan = $idplan;
+    }
+
+    function setDate(\DateTime $date): void {
+        $this->date = $date;
+    }
+
+    function setIduser(\App\Models\Entities\User $iduser): void {
+        $this->iduser = $iduser;
+    }
 
 
 }

@@ -1,7 +1,3 @@
-function makePlan() {
-    alert("make a plan");
-}
-
 function showUserInfo() {
     document.getElementById("user-info-logo").style.display = "none";
     document.getElementById("user-info").style.display = "block";

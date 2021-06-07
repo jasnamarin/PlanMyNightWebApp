@@ -119,6 +119,7 @@
         </div>
     </div>
     
+    <form method="post" action="<?= base_url('Main/planNight') ?>">
     <div class="container-fluid">
         <a href="javascript:void(0);"><img src="../../assets/PlanMyNightPics/menu-logo.png" id="user-info-logo" alt="" class="menu-logo" onclick="showUserInfo()"></a>
         
@@ -152,10 +153,85 @@
                 <a href="javascript:void(0);"><img src="../../assets/PlanMyNightPics/back-arrow.png" alt="" class="back" style="margin-top: 150px;" onclick="hidePlaceInfo()"></a>
             </div>
         </div>
+        
+        <div class="row h-100">
+            <div class="col-sm-4 offset-4 carousel-plan" id="plans">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <?php 
+                        $i = 0;
+                        foreach ($possible as $poss) {
+                            $actives = '';
+                            if ($i == 0) {
+                                $actives = 'active';
+                               
+                    ?>
+                    <script>
+                        $( '#plans' ).css('display', 'block');
+                    </script>
+                    <?php 
+                            }
+                    ?>
+                    
+                    <li data-target="#carouselExampleIndicators" data-slide-to="<?= $i;?>" class="<?= $actives;?>"></li>
+                   <?php 
+                            $i++;
+                        }
+                    ?>
+                </ol>
+                <div class="carousel-inner">
+                    <?php 
+                        $i = 0;
+                        foreach ($possible as $poss) {
+                            $name = $poss->getName();
+                            $address = $poss->getAddress();
+                            $price = $poss->getPricing();
+                            $actives = '';
+                            if ($i == 0)
+                                $actives = 'active';
 
-        <button class="btn btn-signup rounded-lg btn-plan" onclick="makePlan()">Plan my night</button>
+                    ?>
+
+                    <div class="carousel-item <?= $actives;?>" >
+                        <div class="card card-block login-card" style="height: 300px; width: 490px; text-align: center">
+                            <?php
+                                echo "<br>";
+                                echo "<h3>$name</h3>";
+                                echo "<br>";
+                            ?>
+                                <h4>Address: <?php echo $address?></h4>
+                            <?php
+                                echo "<h5>Pricing: $price</h5>";
+                            ?>
+                            
+                            <div class="card-footer bg-transparent">
+                                <button class="btn btn-login rounded-lg"  formaction="<?= base_url('MyPlans/pickPlan/'.$poss->getAddress()) ?>">Reserve</button>
+                            </div>
+                        </div>
+                    </div>
+                    <?php 
+                            $i++;
+                        }
+                    ?>
+
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>                    
+          </div>
+            
+        </div>
+        
+        <button class="btn btn-signup rounded-lg btn-plan" onclick="setCarouselVisible()">Plan my night</button>
         
         <div id="map" class="map-canvas"></div>   
     </div>
+    </form>
 </body>
 </html>

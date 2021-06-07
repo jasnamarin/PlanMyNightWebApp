@@ -73,6 +73,6 @@ class PlanQuestionaire extends BaseController
             
             $this->doctrine->em->merge($preferences);
             $this->doctrine->em->flush();
-            return redirect()->to(site_url("MyPlans"));
+            return redirect()->to(site_url("Main/planNight"));
         }
 }

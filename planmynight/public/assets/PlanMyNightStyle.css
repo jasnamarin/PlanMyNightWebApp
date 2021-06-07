@@ -55,6 +55,15 @@ body, html {
     position: absolute;
 }
 
+.plan-card {
+    align-items: center;
+    width: 450px;
+    height: 300px;
+    left: 400px;
+    z-index: 1;
+    position: absolute;
+}
+
 .navbar-nav > li {
     margin-left: 130px;
 }
@@ -173,12 +182,35 @@ body, html {
     width: 70px;
 }
 
+.card-back {
+    background-image: linear-gradient(rgb(241, 118, 118), rgb(19, 20, 36));
+}
+
+.vertical-margin-plan {
+    margin-top: 400px;
+}
+
 .user-info {
     z-index: 70;
     position: absolute;
     display: none;
     margin-top: 10px;
 }
+
+.carousel-plan {
+    z-index: 70;
+    position: absolute;
+    display: none;
+    margin-top: 350px;
+}
+
+.plan-info {
+    z-index: 70;
+    position: absolute;
+    display: none;
+    margin-top: 400px;
+}
+
 .header {
     color: whitesmoke;
 }

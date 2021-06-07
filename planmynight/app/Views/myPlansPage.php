@@ -46,7 +46,9 @@
         <br><br>
         <div class="row h-20">
             <div class="col-sm-4 vertical-margin header">
-                <h1>Filip Andric's plans:</h1>
+                <?php
+                    echo "<h1>$namesurname's places:</h1>";
+                ?>
             </div>
         </div>
         <br><br>

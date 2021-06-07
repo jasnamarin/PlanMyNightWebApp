@@ -63,7 +63,7 @@ class Preferences {
         return $this->musictype;
     }
 
-    function getMoney(): ?int {
+    function getMoney(): int {
         return $this->money;
     }
 
