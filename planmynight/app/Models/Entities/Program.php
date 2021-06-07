@@ -100,6 +100,102 @@ class Program
      * })
      */
     private $idplace;
+    function getMonday(): string {
+        return $this->monday;
+    }
+
+    function getTuesday(): string {
+        return $this->tuesday;
+    }
+
+    function getWednesday(): string {
+        return $this->wednesday;
+    }
+
+    function getThursday(): string {
+        return $this->thursday;
+    }
+
+    function getFriday(): string {
+        return $this->friday;
+    }
+
+    function getSaturday(): string {
+        return $this->saturday;
+    }
+
+    function getSunday(): string {
+        return $this->sunday;
+    }
+
+    function getWeekDate(): \DateTime {
+        return $this->weekDate;
+    }
+
+    function getWorkTimeStart(): \DateTime {
+        return $this->workTimeStart;
+    }
+
+    function getWorkTimeEnd(): \DateTime {
+        return $this->workTimeEnd;
+    }
+
+    function getProgramcol(): ?string {
+        return $this->programcol;
+    }
+
+    function getIdplace(): \App\Models\Entities\Place {
+        return $this->idplace;
+    }
+
+    function setMonday(string $monday): void {
+        $this->monday = $monday;
+    }
+
+    function setTuesday(string $tuesday): void {
+        $this->tuesday = $tuesday;
+    }
+
+    function setWednesday(string $wednesday): void {
+        $this->wednesday = $wednesday;
+    }
+
+    function setThursday(string $thursday): void {
+        $this->thursday = $thursday;
+    }
+
+    function setFriday(string $friday): void {
+        $this->friday = $friday;
+    }
+
+    function setSaturday(string $saturday): void {
+        $this->saturday = $saturday;
+    }
+
+    function setSunday(string $sunday): void {
+        $this->sunday = $sunday;
+    }
+
+    function setWeekDate(\DateTime $weekDate): void {
+        $this->weekDate = $weekDate;
+    }
+
+    function setWorkTimeStart(\DateTime $workTimeStart): void {
+        $this->workTimeStart = $workTimeStart;
+    }
+
+    function setWorkTimeEnd(\DateTime $workTimeEnd): void {
+        $this->workTimeEnd = $workTimeEnd;
+    }
+
+    function setProgramcol(?string $programcol): void {
+        $this->programcol = $programcol;
+    }
+
+    function setIdplace(\App\Models\Entities\Place $idplace): void {
+        $this->idplace = $idplace;
+    }
+
 
 
 }

@@ -48,57 +48,59 @@
             <div class="col-sm-12 vertical-margin">
                 <div class="card card-block signup-card">
                     <div class="container" style="height: 600px;">
+                        <form method="post" action="<?= base_url('PlaceDetails') ?>">
                         <div class="row">
                                 <div class="col-sm-12">
                                     <br><br>
 
-                                    Monday: &nbsp;&nbsp;&nbsp; <input type="text" name="" id="monday">
+                                    Monday: &nbsp;&nbsp;&nbsp; <input type="text" name="monday" id="monday">
 
                                     <br><br>
 
-                                    Tuesday: &nbsp;&nbsp;&nbsp; <input type="text" name="" id="tuesday">
+                                    Tuesday: &nbsp;&nbsp;&nbsp; <input type="text" name="tuesday" id="tuesday">
 
                                     <br><br>
 
-                                    Wednesday: &nbsp;&nbsp;&nbsp; <input type="text" name="" id="wednesday">
+                                    Wednesday: &nbsp;&nbsp;&nbsp; <input type="text" name="wednesday" id="wednesday">
 
                                     <br><br>
 
-                                    Thursday: &nbsp;&nbsp;&nbsp; <input type="text" name="" id="thursday">
+                                    Thursday: &nbsp;&nbsp;&nbsp; <input type="text" name="thursday" id="thursday">
 
                                     <br><br>
 
-                                    Friday: &nbsp;&nbsp;&nbsp; <input type="text" name="" id="friday">
+                                    Friday: &nbsp;&nbsp;&nbsp; <input type="text" name="friday" id="friday">
 
                                     <br><br>
 
-                                    Saturday: &nbsp;&nbsp;&nbsp; <input type="text" name="" id="saturday">
+                                    Saturday: &nbsp;&nbsp;&nbsp; <input type="text" name="saturday" id="saturday">
 
                                     <br><br>
 
-                                    Sunday: &nbsp;&nbsp;&nbsp; <input type="text" name="" id="sunday">
+                                    Sunday: &nbsp;&nbsp;&nbsp; <input type="text" name="sunday" id="sunday">
 
                                     <br><br>
 
-                                    Worktime start: &nbsp;&nbsp;&nbsp; <input type="time" name="" id="startTime">
+                                    Work time start: &nbsp;&nbsp;&nbsp; <input type="time" name="startTime" id="startTime">
 
                                     <br><br>
 
-                                    Worktime end: &nbsp;&nbsp;&nbsp; <input type="time" name="" id="endTime">
+                                    Work time end: &nbsp;&nbsp;&nbsp; <input type="time" name="endTime" id="endTime">
                                     <br><br>
 
-                                    Week start date: &nbsp;&nbsp;&nbsp; <input type="date" name="" id="weekdate">
+                                    Week start date: &nbsp;&nbsp;&nbsp; <input type="date" name="weekdate" id="weekdate">
                                     <br><br>
-                                    Change pricing &nbsp;<input type="checkbox" name="changePricing"> <br>
-                                    Pricing: &nbsp;&nbsp;&nbsp; <input type="text" name="" id="pricingChange">
+                                    Change pricing &nbsp;<input type="checkbox" name="changePricing" value="1"> <br>
+                                    Pricing: &nbsp;&nbsp;&nbsp; <input type="text" name="pricingChange" id="pricingChange">
                                 </div>
                         </div>
                         <div class="row">
                             <div class="col offset-8" style="margin-top: 100px;">
 
-                                <button class="btn btn-signup rounded-lg" onclick="changeDetails()">Submit!</button>
+                                <button class="btn btn-signup rounded-lg" formaction="<?= base_url('PlaceDetails/setProgram') ?>">Submit!</button>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
