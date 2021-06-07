@@ -53,6 +53,12 @@
                                 <div class="col-sm-12">
                                     <br><br>
 
+                                    <?php
+                                        echo "<h3>Address: $address</h3>";
+                                    ?>
+                                    
+                                    <br><br>
+                                    
                                     Monday: &nbsp;&nbsp;&nbsp; <input type="text" name="monday" id="monday">
 
                                     <br><br>
@@ -81,23 +87,23 @@
 
                                     <br><br>
 
-                                    Work time start: &nbsp;&nbsp;&nbsp; <input type="time" name="startTime" id="startTime">
+                                    Worktime start: &nbsp;&nbsp;&nbsp; <input type="time" name="startTime" id="startTime">
 
                                     <br><br>
 
-                                    Work time end: &nbsp;&nbsp;&nbsp; <input type="time" name="endTime" id="endTime">
+                                    Worktime end: &nbsp;&nbsp;&nbsp; <input type="time" name="endTime" id="endTime">
                                     <br><br>
 
                                     Week start date: &nbsp;&nbsp;&nbsp; <input type="date" name="weekdate" id="weekdate">
                                     <br><br>
-                                    Change pricing &nbsp;<input type="checkbox" name="changePricing" value="1"> <br>
+                                    Change pricing &nbsp;<input type="checkbox" name="changePricing"> <br>
                                     Pricing: &nbsp;&nbsp;&nbsp; <input type="text" name="pricingChange" id="pricingChange">
                                 </div>
                         </div>
                         <div class="row">
                             <div class="col offset-8" style="margin-top: 100px;">
 
-                                <button class="btn btn-signup rounded-lg" formaction="<?= base_url('PlaceDetails/setProgram') ?>">Submit!</button>
+                                <button class="btn btn-signup rounded-lg" formaction="<?= base_url('PlaceDetails/setProgram/'.$address) ?>">Submit!</button>
                             </div>
                         </div>
                         </form>

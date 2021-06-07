@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Program
  *
  * @ORM\Table(name="program")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Models\Repositories\ProgramRepo")
  */
 class Program
 {
@@ -100,6 +100,7 @@ class Program
      * })
      */
     private $idplace;
+
     function getMonday(): string {
         return $this->monday;
     }

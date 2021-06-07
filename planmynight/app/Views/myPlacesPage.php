@@ -92,6 +92,7 @@
             </div>
         </div>
         <br><br>
+        <form method="post" action="<?= base_url('PlaceDetails') ?>">
         <div class="row h-100" id="back">
             <div class="col-sm-4 vertical-margin offset-4">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -130,12 +131,16 @@
                                 echo "<br>";
                                 echo "<h1>$name</h1>";
                                 echo "<br><br>";
-                                echo "<h3>Address: $address</h3>";
+                            ?>
+                                <h3 name="placeaddress" id="placeaddress">Address: <?php echo $address?></h3>
+                            <?php
                                 echo "<h4>Pricing: $price</h4>";
                                 echo "<br><br><br><br>";
                             ?>
+                            <input type="text" name="placeaddress<?=$i?>" style="display: none" value="<?php echo $address?>">
+                            
                             <div class="card-footer bg-transparent">
-                                <button class="btn btn-login rounded-lg">See details</button>
+                                <button class="btn btn-login rounded-lg" formaction="<?= base_url('PlaceDetails/index/'.$i) ?>">Set details</button>
                             </div>
                         </div>
                     </div>
@@ -157,6 +162,7 @@
           </div>
             
         </div>
+        </form>
     
     
     

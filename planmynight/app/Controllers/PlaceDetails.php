@@ -5,15 +5,15 @@ use App\Models\Entities;
 
 class PlaceDetails extends BaseController
 {
-	public function index()
-	{
-            echo view("placeDetailsPage");
-	}
-        
-        public function setProgram()
+    public function index($i)
+    {   
+        $address = $this->request->getVar('placeaddress'.$i);
+        echo view("placeDetailsPage", ['address'=>$address]);
+    }
+    
+    public function setProgram($address)
         {
-            $address=$this->session->get('address');
-            
+         
             $monday = $this->request->getVar('monday');
             $tuesday= $this->request->getVar('tuesday');
             $wednesday = $this->request->getVar('wednesday');
