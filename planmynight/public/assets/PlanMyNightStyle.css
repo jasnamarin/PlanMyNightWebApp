@@ -40,7 +40,19 @@ body, html {
 .user-card {
     align-items: center;
     width: 350px;
-    height: 700px;
+    height: 650px;
+    left: 1200px;
+    z-index: 1;
+    position: absolute;
+}
+
+.place-card {
+    align-items: center;
+    width: 350px;
+    height: 500px;
+    left: 10px;
+    z-index: 1;
+    position: absolute;
 }
 
 .navbar-nav > li {
@@ -129,7 +141,7 @@ body, html {
 .btn-plan {
     z-index: 1;
     position: absolute;
-    top: 700px;
+    top: 650px;
     left: 50px;
     font-family: cursive;
     font-size: 40px;
@@ -154,7 +166,7 @@ body, html {
     z-index: 60;
     position: absolute;
     top: 120px;
-    left: 1300px;
+    left: 1500px;
 }
 
 .menu-logo-pic {

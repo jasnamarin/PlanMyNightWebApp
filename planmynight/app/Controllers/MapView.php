@@ -14,7 +14,7 @@ class MapView extends BaseController
                 $locations .= $place->getAddress();
                 $locations .= ";";
             }
-            return view('mapViewPage', ["locations"=>$locations]);
+            return view('mapViewPage', ["locations"=>$locations, "places"=>$places]);
 	}
 
 }

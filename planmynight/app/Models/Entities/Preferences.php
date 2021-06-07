@@ -8,10 +8,10 @@ use Doctrine\ORM\Mapping as ORM;
  * Preferences
  *
  * @ORM\Table(name="preferences")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Models\Repositories\PreferencesRepo")
  */
-class Preferences
-{
+class Preferences {
+
     /**
      * @var string|null
      *
@@ -58,6 +58,7 @@ class Preferences
      * })
      */
     private $iduser;
+
     function getMusictype(): ?string {
         return $this->musictype;
     }
@@ -105,7 +106,6 @@ class Preferences
     function setIduser(\App\Models\Entities\User $iduser): void {
         $this->iduser = $iduser;
     }
-
 
 
 }

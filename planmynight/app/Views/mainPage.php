@@ -15,12 +15,14 @@
         window.onload = function() {
             L.mapquest.key = 'RqHWAPqGGxE6CbzOEy1IkIaCRqggRr8a';
             
-            
+            var markers = [];
+            var streets = [];
             var map = L.mapquest.map('map', {
             center: [44.8125, 20.4612],
             layers: L.mapquest.tileLayer('map'),
             zoom: 13
             });
+            
             
             var locations = '<?php echo $locations?>';
             var res = locations.split(";");
@@ -28,15 +30,55 @@
                 L.mapquest.geocoding().geocode(res[i], addMarker);
             }
 
-
             function addMarker(error, response) {
                 var location = response.results[0].locations[0];
                 var latLng = location.displayLatLng;
-                L.marker(latLng, {
-                  icon: L.mapquest.icons.marker(),
-                  draggable: false
-                }).bindPopup('kafana').addTo(map);
+                var marker = L.marker(latLng, {
+                    icon: L.mapquest.icons.marker(),
+                    draggable: false
+                });
+                marker.on('click', function() {
+                    let i = 0;
+                    while (markers[i] != this)
+                        i++;
+                    showPlaceInfo(streets[i]); 
+                });
+                markers.push(marker);
+                streets.push(JSON.parse(JSON.stringify(location)).street);
+                marker.addTo(map);
             }
+
+            
+            function showPlaceInfo(street) {
+                street = street.toString();
+                street = street.substring(6);
+
+                <?php 
+                    foreach($places as $place) {
+
+                        $address = $place->getAddress();
+                        $name = $place->getName();
+                        $price = $place->getPricing();
+                ?>
+                if (("<?=$address ?>").includes(street)) {
+ 
+                    var name = document.getElementById("name-place-card"); 
+                    name.innerHTML = "<?=$name ?>";
+                    
+                    var address = document.getElementById("address-place-card"); 
+                    address.innerHTML = "<?=$address ?>";
+                    
+                    var price = document.getElementById("price-place-card"); 
+                    price.innerHTML = "<?=$price ?>";
+                    
+                    var card = document.getElementById("place-info");
+                    card.style.display = "block";
+                    
+                }
+                <?php 
+                    }
+                ?>
+            } 
             
             //L.mapquest.directions().route({
             // start: '350 5th Ave, New York, NY 10118',
@@ -54,22 +96,22 @@
         <div class="row background">
             <div class="col-sm-12">
                 <nav class="navbar navbar-expand-sm">
-                    <a class="navbar-brand" href="Main">
+                    <a class="navbar-brand" href="<?php echo base_url('Main') ?>">
                         <img src="../../assets/PlanMyNightPics/planMyNightLogo.png" alt="">
-                        <a class="nav-link logotype" href="Main"></a>
+                        <a class="nav-link logotype" href="<?php echo base_url('Main') ?>"></a>
                     </a>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="RegisterPlace">Register Place</a>
+                            <a class="nav-link" href="<?php echo base_url('RegisterPlace') ?>">Register Place</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="DiscoverPlaces">Discover Places</a>
+                            <a class="nav-link" href="<?php echo base_url('DiscoverPlaces') ?>">Discover Places</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="MapView">Map View</a>
+                            <a class="nav-link" href="<?php echo base_url('MapView') ?>">Map View</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="About">About</a>
+                            <a class="nav-link" href="<?php echo base_url('About') ?>">About</a>
                         </li>
                     </ul>
                 </nav>
@@ -80,10 +122,9 @@
     <div class="container-fluid">
         <a href="javascript:void(0);"><img src="../../assets/PlanMyNightPics/menu-logo.png" id="user-info-logo" alt="" class="menu-logo" onclick="showUserInfo()"></a>
         
-        <div class="col-sm-4 offset-8 user-info" id="user-info">
+        <div class="col-sm-12 user-info" id="user-info">
             <div class="card card-block user-card">
                 <br>
-                <img src="PlanMyNightPics/logo.png" alt="" class="menu-logo-pic">
                 <?php
                     echo "<h1>$namesurname</h1>";
                 ?>
@@ -96,6 +137,19 @@
                 <br>
                 <a href="myPlaces" class="nav-link-user">My places</a>
                 <a href="javascript:void(0);"><img src="../../assets/PlanMyNightPics/back-arrow.png" alt="" class="back" style="margin-top: 150px;" onclick="hideUserInfo()"></a>
+            </div>
+        </div>
+        
+        <div class="col-sm-12 user-info" id="place-info">
+            <div class="card card-block place-card">
+                <br>
+                <h1 id="name-place-card" style="text-align: center"></h1>
+                <br><br>
+                <h3 id="address-place-card" style="text-align: center"></h3>
+                <h4 id="price-place-card" style="text-align: center"></h4>
+                
+                
+                <a href="javascript:void(0);"><img src="../../assets/PlanMyNightPics/back-arrow.png" alt="" class="back" style="margin-top: 150px;" onclick="hidePlaceInfo()"></a>
             </div>
         </div>
 

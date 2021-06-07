@@ -22,82 +22,96 @@
          <div class="row">
             <div class="col-sm-12">
                 <nav class="navbar navbar-expand-sm">
-                    <a class="navbar-brand" href="Main">
+                    <a class="navbar-brand" href="<?php echo base_url('Main') ?>">
                         <img src="../../assets/PlanMyNightPics/planMyNightLogo.png" alt="">
-                        <a class="nav-link logotype" href="Main"></a>
+                        <a class="nav-link logotype" href="<?php echo base_url('Main') ?>"></a>
                     </a>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="RegisterPlace">Register Place</a>
+                            <a class="nav-link" href="<?php echo base_url('RegisterPlace') ?>">Register Place</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Discover Places</a>
+                            <a class="nav-link" href="javascript:void(0)">Discover Places</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="MapView">Map View</a>
+                            <a class="nav-link" href="<?php echo base_url('MapView') ?>">Map View</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="About">About</a>
+                            <a class="nav-link" href="<?php echo base_url('About') ?>">About</a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </div>
-        <div class="row h-100 background">
-            <div class="col-sm-4 vertical-margin">
-                <div class="card card-block login-card" style="height: 600px;">
-                    <div class="card-footer bg-transparent">
-                        <button class="btn btn-login rounded-lg">See details</button>
-                    </div>
-                </div>
-            </div>
+        
+        
+        <div class="row h-100" id="back">
+            <div class="col-sm-4 vertical-margin offset-4">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <?php 
+                        $i = 0;
+                        foreach ($places as $place) {
+                            $actives = '';
+                            if ($i == 0)
+                                $actives = 'active';
 
-            <div class="col-sm-4 vertical-margin">
-                <div class="card card-block login-card" style="height: 600px;">
-                    <div class="card-footer bg-transparent">
-                        <button class="btn btn-login rounded-lg">See details</button>
-                    </div>
-                </div>
-            </div>
+                    ?>
 
-            <div class="col-sm-4 vertical-margin">
-                <div class="card card-block login-card" style="height: 600px;">
-                    <div class="card-footer bg-transparent">
-                        <button class="btn btn-login rounded-lg">See details</button>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="<?= $i;?>" class="<?= $actives;?>"></li>
+                   <?php 
+                            $i++;
+                        }
+                    ?>
+                </ol>
+                <div class="carousel-inner">
+                    <?php 
+                        $i = 0;
+                        foreach ($places as $place) {
+                            $name = $place->getName();
+                            $address = $place->getAddress();
+                            $price = $place->getPricing();
+                            $actives = '';
+                            if ($i == 0)
+                                $actives = 'active';
+
+                    ?>
+
+                    <div class="carousel-item <?= $actives;?>">
+                        <div class="card card-block login-card" style="height: 600px; width: 500px; text-align: center">
+                            <?php
+                                echo "<br>";
+                                echo "<h1>$name</h1>";
+                                echo "<br><br>";
+                                echo "<h3>Address: $address</h3>";
+                                echo "<h4>Pricing: $price</h4>";
+                                echo "<br><br><br><br>";
+                            ?>
+                            <div class="card-footer bg-transparent">
+                                <button class="btn btn-login rounded-lg">See details</button>
+                            </div>
+                        </div>
                     </div>
+                    <?php 
+                            $i++;
+                        }
+                    ?>
+
                 </div>
-            </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>                    
+          </div>
             
         </div>
 
-        <br/><br/>
-
-        <div class="row h-100">
-            <div class="col-sm-4 vertical-margin">
-                <div class="card card-block login-card" style="height: 600px;">
-                    <div class="card-footer bg-transparent">
-                        <button class="btn btn-login rounded-lg">See details</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-4 vertical-margin">
-                <div class="card card-block login-card" style="height: 600px;">
-                    <div class="card-footer bg-transparent">
-                        <button class="btn btn-login rounded-lg">See details</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-4 vertical-margin">
-                <div class="card card-block login-card" style="height: 600px;">
-                    <div class="card-footer bg-transparent">
-                        <button class="btn btn-login rounded-lg">See details</button>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
+        
 
     </div>
 </body>

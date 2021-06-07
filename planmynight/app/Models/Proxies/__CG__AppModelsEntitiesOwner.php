@@ -176,4 +176,92 @@ class Owner extends \App\Models\Entities\Owner implements \Doctrine\ORM\Proxy\Pr
     }
 
     
+    /**
+     * {@inheritDoc}
+     */
+    public function getJmbg(): string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getJmbg', []);
+
+        return parent::getJmbg();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getLicense(): string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLicense', []);
+
+        return parent::getLicense();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAddress(): string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAddress', []);
+
+        return parent::getAddress();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getIduser(): \App\Models\Entities\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIduser', []);
+
+        return parent::getIduser();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setJmbg(string $jmbg): void
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setJmbg', [$jmbg]);
+
+        parent::setJmbg($jmbg);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setLicense(string $license): void
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLicense', [$license]);
+
+        parent::setLicense($license);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAddress(string $address): void
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAddress', [$address]);
+
+        parent::setAddress($address);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setIduser(\App\Models\Entities\User $iduser): void
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIduser', [$iduser]);
+
+        parent::setIduser($iduser);
+    }
+
 }

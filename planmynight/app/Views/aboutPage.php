@@ -22,22 +22,22 @@
          <div class="row">
             <div class="col-sm-12">
                 <nav class="navbar navbar-expand-sm">
-                    <a class="navbar-brand" href="Main">
+                    <a class="navbar-brand" href="<?php echo base_url('Main') ?>">
                         <img src="../../assets/PlanMyNightPics/planMyNightLogo.png" alt="">
-                        <a class="nav-link logotype" href="Main"></a>
+                        <a class="nav-link logotype" href="<?php echo base_url('Main') ?>"></a>
                     </a>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="RegisterPlace">Register Place</a>
+                            <a class="nav-link" href="<?php echo base_url('RegisterPlace') ?>">Register Place</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="DiscoverPlaces">Discover Places</a>
+                            <a class="nav-link" href="<?php echo base_url('DiscoverPlaces') ?>">Discover Places</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="MapView">Map View</a>
+                            <a class="nav-link" href="<?php echo base_url('MapView') ?>">Map View</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="javascript:void(0)">About</a>
                         </li>
                     </ul>
                 </nav>

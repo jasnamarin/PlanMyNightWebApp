@@ -24,6 +24,6 @@ class Main extends BaseController
             $locations .= ";";
         }
         
-        echo view("mainPage", ["namesurname"=>$namesurname, "locations"=>$locations]);
+        echo view("mainPage", ["namesurname"=>$namesurname, "locations"=>$locations, "places"=>$places]);
     }
 }
