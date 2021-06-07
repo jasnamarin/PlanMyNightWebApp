@@ -11,17 +11,50 @@
     <title>Plan my night</title>
     <link href="../../assets/PlanMyNightStyle.css" rel="stylesheet" type="text/css"/>
     <script src="../../assets/PlanMyNight.js"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            L.mapquest.key = 'RqHWAPqGGxE6CbzOEy1IkIaCRqggRr8a';
+            
+            
+            var map = L.mapquest.map('map', {
+            center: [44.8125, 20.4612],
+            layers: L.mapquest.tileLayer('map'),
+            zoom: 13
+            });
+            
+            var locations = '<?php echo $locations?>';
+            var res = locations.split(";");
+            for (let i = 0; i < res.length - 1; i++) {
+                L.mapquest.geocoding().geocode(res[i], addMarker);
+            }
+
+
+            function addMarker(error, response) {
+                var location = response.results[0].locations[0];
+                var latLng = location.displayLatLng;
+                L.marker(latLng, {
+                  icon: L.mapquest.icons.marker(),
+                  draggable: false
+                }).bindPopup('kafana').addTo(map);
+            }
+            
+            //L.mapquest.directions().route({
+            // start: '350 5th Ave, New York, NY 10118',
+            // end: 'One Liberty Plaza, New York, NY 10006'
+            // });
+        }
+    </script>
 
     <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
     <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
 </head>
-<body onload="mapViewOnLoad()">
+<body>
 
     <div class="container-fluid on-map">    
-         <div class="row">
+        <div class="row background">
             <div class="col-sm-12">
                 <nav class="navbar navbar-expand-sm">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="Main">
                         <img src="../../assets/PlanMyNightPics/planMyNightLogo.png" alt="">
                         <a class="nav-link logotype" href="Main"></a>
                     </a>
@@ -43,14 +76,17 @@
             </div>
         </div>
     </div>
+    
     <div class="container-fluid">
         <a href="javascript:void(0);"><img src="../../assets/PlanMyNightPics/menu-logo.png" id="user-info-logo" alt="" class="menu-logo" onclick="showUserInfo()"></a>
         
         <div class="col-sm-4 offset-8 user-info" id="user-info">
             <div class="card card-block user-card">
                 <br>
-                <img src="../../assets/PlanMyNightPics/logo.png" alt="" class="menu-logo-pic">
-                <h1>Filip Andric</h1>
+                <img src="PlanMyNightPics/logo.png" alt="" class="menu-logo-pic">
+                <?php
+                    echo "<h1>$namesurname</h1>";
+                ?>
                 <br>
                 <a href="myPlans" class="nav-link-user">My plans</a>
                 <br>

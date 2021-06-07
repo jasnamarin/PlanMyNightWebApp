@@ -7,7 +7,13 @@ class RegisterPlace extends BaseController
 {
 	public function index()
 	{
-		echo view("registerPlacePage");
+            $user = $this->session->get('user');
+        
+            if ($user == null) {
+                return redirect()->to(site_url("Login"));
+            }
+            
+            echo view("registerPlacePage");
 	}
         
         public function submit() {
@@ -22,6 +28,7 @@ class RegisterPlace extends BaseController
                 return view("registerPlacePage", ["error"=>"This address is already taken."]);
             }
             
+            $umpn = $this->request->getVar('UMPN');
             $apr = $this->request->getVar('APR');
             $name = $this->request->getVar('Place_name');
             $pricing = $this->request->getVar('pricing');
@@ -38,7 +45,7 @@ class RegisterPlace extends BaseController
                 $owner = new Entities\Owner();
                 $owner->setIduser($user);
                 $owner->setAddress($user_address);
-                $owner->setJmbg("xxxx");
+                $owner->setJmbg($umpn);
                 $owner->setLicense($apr);
                 
                 $this->doctrine->em->persist($owner);

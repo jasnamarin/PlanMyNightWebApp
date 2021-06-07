@@ -9,36 +9,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
     <title>Plan my night</title>
-    <link href="../../assets/PlanMyNightStyle.css" rel="stylesheet" type="text/css"/>
+   <link href="../../assets/PlanMyNightStyle.css" rel="stylesheet" type="text/css"/>
     <script src="../../assets/PlanMyNight.js"></script>
-    <script type="text/javascript">
-        window.onload = function() {
-            L.mapquest.key = 'RqHWAPqGGxE6CbzOEy1IkIaCRqggRr8a';
-            
-            
-            var map = L.mapquest.map('map', {
-            center: [44.8125, 20.4612],
-            layers: L.mapquest.tileLayer('map'),
-            zoom: 13
-            });
-            
-            var locations = '<?php echo $locations?>';
-            var res = locations.split(";");
-            for (let i = 0; i < res.length - 1; i++) {
-                L.mapquest.geocoding().geocode(res[i], addMarker);
-            }
-
-
-            function addMarker(error, response) {
-                var location = response.results[0].locations[0];
-                var latLng = location.displayLatLng;
-                L.marker(latLng, {
-                  icon: L.mapquest.icons.marker(),
-                  draggable: false
-                }).bindPopup('kafana').addTo(map);
-            }
-        }
-    </script>
 
     <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
     <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
@@ -47,7 +19,7 @@
 <body>
     <div class="container-fluid background">
         
-        <div class="row">
+         <div class="row">
             <div class="col-sm-12">
                 <nav class="navbar navbar-expand-sm">
                     <a class="navbar-brand" href="Main">
@@ -62,7 +34,7 @@
                             <a class="nav-link" href="DiscoverPlaces">Discover Places</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0)">Map View</a>
+                            <a class="nav-link" href="MapView">Map View</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="About">About</a>
@@ -71,7 +43,13 @@
                 </nav>
             </div>
         </div>
-
+        <br><br>
+        <div class="row h-20">
+            <div class="col-sm-4 vertical-margin header">
+                <h1>Filip Andric's plans:</h1>
+            </div>
+        </div>
+        <br><br>
         <div class="row h-100">
             <div class="col-sm-4 vertical-margin">
                 <div class="card card-block login-card" style="height: 600px;">
@@ -81,11 +59,26 @@
                 </div>
             </div>
 
-            <div class="col vertical-margin">
-                <div id="map" style="width: 90%; height: 600px;"></div> 
+            <div class="col-sm-4 vertical-margin">
+                <div class="card card-block login-card" style="height: 600px;">
+                    <div class="card-footer bg-transparent">
+                        <button class="btn btn-login rounded-lg">See details</button>
+                    </div>
+                </div>
             </div>
-        </div>
 
+            <div class="col-sm-4 vertical-margin">
+                <div class="card card-block login-card" style="height: 600px;">
+                    <div class="card-footer bg-transparent">
+                        <button class="btn btn-login rounded-lg">See details</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    
+    
+    
     </div>
 </body>
 </html>
