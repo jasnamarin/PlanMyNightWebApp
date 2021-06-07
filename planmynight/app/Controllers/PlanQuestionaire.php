@@ -32,7 +32,7 @@ class PlanQuestionaire extends BaseController
             
             
             if (!$this->validate(['plan_budget'=>'required', 'plan_time'=>'required']))
-                return view("planQuestionaire", ["errors"=>$this->validator->getErrors()]);
+                return view("planQuestionairePage", ["errors"=>$this->validator->getErrors()]);
             
             $music= "";
             
