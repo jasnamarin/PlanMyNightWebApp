@@ -25,8 +25,8 @@ class Main extends BaseController
         }
         
         $possible = array();
-        
-        echo view("mainPage", ["namesurname"=>$namesurname, "locations"=>$locations, "places"=>$places, "possible"=>$possible]);
+        $error="";
+        echo view("mainPage", ["namesurname"=>$namesurname, "locations"=>$locations, "places"=>$places, "possible"=>$possible,"error"=>$error]);
     }
     
     public function planNight() {
@@ -104,7 +104,9 @@ class Main extends BaseController
                 }
             }
         }
+        $error="";
+        if(empty($possible))$error="Change preferences.";
         
-        echo view("mainPage", ["namesurname"=>$namesurname, "locations"=>$locations, "places"=>$places, "possible"=>$possible]);
+        echo view("mainPage", ["namesurname"=>$namesurname, "locations"=>$locations, "places"=>$places, "possible"=>$possible,"error"=>$error]);
     }
 }

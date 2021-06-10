@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Mark
  *
  * @ORM\Table(name="mark", indexes={@ORM\Index(name="id_place_mark_idx", columns={"idplace"}), @ORM\Index(name="id_user_mark", columns={"iduser"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Models\Repositories\MarkRepo")
  */
 class Mark
 {
@@ -47,6 +47,38 @@ class Mark
      * })
      */
     private $iduser;
+
+    function getIdmark(): int {
+        return $this->idmark;
+    }
+
+    function getMark(): int {
+        return $this->mark;
+    }
+
+    function getIdplace(): \App\Models\Entities\Place {
+        return $this->idplace;
+    }
+
+    function getIduser(): \App\Models\Entities\User {
+        return $this->iduser;
+    }
+
+    function setIdmark(int $idmark): void {
+        $this->idmark = $idmark;
+    }
+
+    function setMark(int $mark): void {
+        $this->mark = $mark;
+    }
+
+    function setIdplace(\App\Models\Entities\Place $idplace): void {
+        $this->idplace = $idplace;
+    }
+
+    function setIduser(\App\Models\Entities\User $iduser): void {
+        $this->iduser = $iduser;
+    }
 
 
 }

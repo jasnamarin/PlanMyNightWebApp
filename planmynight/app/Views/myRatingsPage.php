@@ -48,77 +48,80 @@
         </div>
         <br><br>
         <div class="row h-20">
-            <div class="col-sm-4 vertical-margin header">
-                <h1>Filip Andric's ratings:</h1>
-            </div>
-        </div>
-        <br><br>
-        <div class="row h-100">
-            <div class="col-sm-4 vertical-margin">
-                <div class="card card-block login-card" style="height: 600px;">
-                    <div class="card-footer bg-transparent">
-                        <button class="btn btn-login rounded-lg">See details</button>
-                        <br>
-                        <fieldset class="rating"> <input type="radio" id="1star5" name="rating" value="5" /><label
-                                class="full" for="1star5" title="Awesome - 5 stars"></label> <input type="radio"
-                                id="1star4" name="rating" value="4" /><label class="full" for="1star4"
-                                title="Pretty good - 4 stars"></label>
-                            <input type="radio" id="1star3" name="rating" value="3" /><label class="full" for="1star3"
-                                title="Meh - 3 stars"></label>
-                            <input type="radio" id="1star2" name="rating" value="2" /><label class="full" for="1star2"
-                                title="Kinda bad - 2 stars"></label>
-                            <input type="radio" id="1star1" name="rating" value="1" /><label class="full" for="1star1"
-                                title="Sucks big time - 1 star"></label> 
-                            <input type="radio" class="reset-option" name="rating" value="reset" />
-                        </fieldset>
-                    </div>
+                <div class="col-sm-4 vertical-margin header">
+                    <?php
+                    echo "<h1>$namesurname's ratings:</h1>";
+                    ?>
                 </div>
             </div>
+            <br><br>
+            <div class="row h-100" id="back">
+                <div class="col-sm-4 vertical-margin offset-4">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <?php
+                            $i = 0;
+                            foreach ($places as $place) {
+                                $actives = '';
+                                if ($i == 0)
+                                    $actives = 'active';
+                                ?>
 
-            <div class="col-sm-4 vertical-margin">
-                <div class="card card-block login-card" style="height: 600px;">
-                    <div class="card-footer bg-transparent">
-                        <button class="btn btn-login rounded-lg">See details</button>
-                        <br>
-                        <fieldset class="rating"> <input type="radio" id="2star5" name="rating2" value="5" /><label
-                                class="full" for="2star5" title="Awesome - 5 stars"></label> <input type="radio"
-                                id="2star4" name="rating2" value="4" /><label class="full" for="2star4"
-                                title="Pretty good - 4 stars"></label>
-                            <input type="radio" id="2star3" name="rating2" value="3" /><label class="full" for="2star3"
-                                title="Meh - 3 stars"></label>
-                            <input type="radio" id="2star2" name="rating2" value="2" /><label class="full" for="2star2"
-                                title="Kinda bad - 2 stars"></label>
-                            <input type="radio" id="2star1" name="rating2" value="1" /><label class="full" for="2star1"
-                                title="Sucks big time - 1 star"></label> 
-                                <input type="radio" class="reset-option" name="rating2 value="reset" />
-                        </fieldset>
-                    </div>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="<?= $i; ?>" class="<?= $actives; ?>"></li>
+                                <?php
+                                $i++;
+                            }
+                            ?>
+                        </ol>
+                        <div class="carousel-inner">
+                            <?php
+                            $i = 0;
+                            foreach ($places as $place) {
+                                $name = $place->getName();
+                                $address = $place->getAddress();
+                                $price = $place->getPricing();
+                                
+                                $mark=$marks[$i];
+                                $actives = '';
+                                if ($i == 0)
+                                    $actives = 'active';
+                                ?>
+
+                                <div class="carousel-item <?= $actives; ?>">
+                                    <div class="card card-block login-card" style="height: 600px; width: 500px; text-align: center">
+                                        <?php
+                                        echo "<br>";
+                                        echo "<h1>$name</h1>";
+                                        echo "<br><br>";
+                                        echo "<h3>Address: $address</h3>";
+                                        echo "<h4>Pricing: $price</h4>";
+                                        echo "<br>";
+                                        echo "<h3>Rating: $mark";
+                                        echo "<br><br><br><br>";
+                                        ?>
+                                        <br>
+                                        
+                                    </div>
+                                </div>
+
+                                <?php
+                                $i++;
+                            }
+                            ?>
+
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>                    
                 </div>
+
             </div>
-
-            <div class="col-sm-4 vertical-margin">
-                <div class="card card-block login-card" style="height: 600px;">
-                    <div class="card-footer bg-transparent">
-                        <button class="btn btn-login rounded-lg">See details</button>
-                        <br>
-                        <fieldset class="rating"> <input type="radio" id="3star5" name="rating3" value="5" /><label
-                                class="full" for="3star5" title="Awesome - 5 stars"></label> <input type="radio"
-                                id="3star4" name="rating3" value="4" /><label class="full" for="3star4"
-                                title="Pretty good - 4 stars"></label>
-                            <input type="radio" id="3star3" name="rating3" value="3" /><label class="full" for="3star3"
-                                title="Meh - 3 stars"></label>
-                            <input type="radio" id="3star2" name="rating3" value="2" /><label class="full" for="3star2"
-                                title="Kinda bad - 2 stars"></label>
-                            <input type="radio" id="3star1" name="rating3" value="1" /><label class="full" for="3star1"
-                                title="Sucks big time - 1 star"></label>
-                            <input type="radio" class="reset-option" name="rating3" value="reset" />
-                        </fieldset>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
 
 
 

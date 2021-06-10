@@ -130,13 +130,13 @@
                     echo "<h1>$namesurname</h1>";
                 ?>
                 <br>
-                <a href="myPlans" class="nav-link-user">My plans</a>
+                <a class="nav-link-user" href="<?php echo base_url('MyPlans') ?>">My plans</a>
                 <br>
-                <a href="planQuestionaire" class="nav-link-user">Preferences</a>
+                <a class="nav-link-user" href="<?php echo base_url('PlanQuestionaire') ?>">Preferences</a>
                 <br>
-                <a href="myRatings" class="nav-link-user">Ratings</a>
+                <a class="nav-link-user" href="<?php echo base_url('MyRatings') ?>">Ratings</a>
                 <br>
-                <a href="myPlaces" class="nav-link-user">My places</a>
+                <a class="nav-link-user" href="<?php echo base_url('MyPlaces') ?>">My places</a>
                 <a href="javascript:void(0);"><img src="../../assets/PlanMyNightPics/back-arrow.png" alt="" class="back" style="margin-top: 150px;" onclick="hideUserInfo()"></a>
             </div>
         </div>
@@ -229,6 +229,13 @@
         </div>
         
         <button class="btn btn-signup rounded-lg btn-plan" onclick="setCarouselVisible()">Plan my night</button>
+        <?php                         
+            if ($error==="Change preferences.") {
+                echo "<br>";
+                echo "<p class='p-enhanced-text'>Change your preferences.</p>";
+            }
+        ?>
+        
         
         <div id="map" class="map-canvas"></div>   
     </div>

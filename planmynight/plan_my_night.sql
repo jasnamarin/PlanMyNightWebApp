@@ -1,506 +1,300 @@
--- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 5.1.0
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost    Database: plan_my_night
--- ------------------------------------------------------
--- Server version	8.0.22
+-- Host: 127.0.0.1
+-- Generation Time: Jun 10, 2021 at 10:00 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.6
 
-DROP DATABASE IF EXISTS `plan_my_night`;
-CREATE DATABASE IF NOT EXISTS `plan_my_night` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `plan_my_night`;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `plan_my_night`
+--
+CREATE DATABASE IF NOT EXISTS `plan_my_night` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `plan_my_night`;
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `comment`
 --
 
 DROP TABLE IF EXISTS `comment`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `comment` (
-  `idcomment` int NOT NULL AUTO_INCREMENT,
-  `idplace` int NOT NULL,
-  `iduser` int NOT NULL,
-  `comment` varchar(500) NOT NULL,
+CREATE TABLE IF NOT EXISTS `comment` (
+  `idcomment` int(11) NOT NULL AUTO_INCREMENT,
+  `idplace` int(11) NOT NULL,
+  `iduser` int(11) NOT NULL,
+  `comment` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`idcomment`),
   UNIQUE KEY `idcomment_UNIQUE` (`idcomment`),
   KEY `id_user_comm_idx` (`iduser`),
-  KEY `id_place_comm_idx` (`idplace`),
-  CONSTRAINT `id_place_comm` FOREIGN KEY (`idplace`) REFERENCES `place` (`idplace`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `id_user_comm` FOREIGN KEY (`iduser`) REFERENCES `user` (`iduser`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `id_place_comm_idx` (`idplace`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `comment`
---
-
-LOCK TABLES `comment` WRITE;
-/*!40000 ALTER TABLE `comment` DISABLE KEYS */;
-/*!40000 ALTER TABLE `comment` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2021-04-25 19:29:36
--- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
---
--- Host: localhost    Database: plan_my_night
--- ------------------------------------------------------
--- Server version	8.0.22
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `mark`
 --
 
 DROP TABLE IF EXISTS `mark`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `mark` (
-  `idmark` int NOT NULL,	
-  `iduser` int NOT NULL,
-  `idplace` int NOT NULL,
-  `mark` int NOT NULL,
+CREATE TABLE IF NOT EXISTS `mark` (
+  `idmark` int(11) NOT NULL AUTO_INCREMENT,
+  `iduser` int(11) NOT NULL,
+  `idplace` int(11) NOT NULL,
+  `mark` int(11) NOT NULL,
   PRIMARY KEY (`idmark`),
   KEY `id_place_mark_idx` (`idplace`),
-  CONSTRAINT `id_place_mark` FOREIGN KEY (`idplace`) REFERENCES `place` (`idplace`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `id_user_mark` FOREIGN KEY (`iduser`) REFERENCES `user` (`iduser`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  KEY `id_user_mark` (`iduser`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `mark`
 --
 
-LOCK TABLES `mark` WRITE;
-/*!40000 ALTER TABLE `mark` DISABLE KEYS */;
-/*!40000 ALTER TABLE `mark` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `mark` (`idmark`, `iduser`, `idplace`, `mark`) VALUES
+(4, 1, 1, 3);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2021-04-25 19:29:36
--- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
---
--- Host: localhost    Database: plan_my_night
--- ------------------------------------------------------
--- Server version	8.0.22
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `owner`
 --
 
 DROP TABLE IF EXISTS `owner`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `owner` (
-  `iduser` int NOT NULL,
-  `jmbg` varchar(45) NOT NULL,
-  `license` varchar(90) NOT NULL,
-  `address` varchar(90) NOT NULL,
+CREATE TABLE IF NOT EXISTS `owner` (
+  `iduser` int(11) NOT NULL,
+  `jmbg` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `license` varchar(90) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(90) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`iduser`),
-  UNIQUE KEY `jmbg_UNIQUE` (`jmbg`),
-  CONSTRAINT `id_user_owner` FOREIGN KEY (`iduser`) REFERENCES `user` (`iduser`) ON DELETE CASCADE ON UPDATE CASCADE
+  UNIQUE KEY `jmbg_UNIQUE` (`jmbg`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `owner`
 --
 
-LOCK TABLES `owner` WRITE;
-/*!40000 ALTER TABLE `owner` DISABLE KEYS */;
-/*!40000 ALTER TABLE `owner` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `owner` (`iduser`, `jmbg`, `license`, `address`) VALUES
+(1, '12342', '1234', 'Bulevar kralja Aleksandra 191');
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2021-04-25 19:29:36
--- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
---
--- Host: localhost    Database: plan_my_night
--- ------------------------------------------------------
--- Server version	8.0.22
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `place`
 --
 
 DROP TABLE IF EXISTS `place`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `place` (
-  `idplace` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
-  `address` varchar(90) NOT NULL,
-  `pricing` varchar(90) NOT NULL,
-  `iduser` int NOT NULL,
+CREATE TABLE IF NOT EXISTS `place` (
+  `idplace` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(90) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pricing` varchar(90) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `iduser` int(11) NOT NULL,
   PRIMARY KEY (`idplace`),
   UNIQUE KEY `idplace_UNIQUE` (`idplace`),
-  KEY `id_user_idx` (`iduser`),
-  CONSTRAINT `id_user_place` FOREIGN KEY (`iduser`) REFERENCES `owner` (`iduser`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  KEY `id_user_idx` (`iduser`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `place`
 --
 
-LOCK TABLES `place` WRITE;
-/*!40000 ALTER TABLE `place` DISABLE KEYS */;
-/*!40000 ALTER TABLE `place` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `place` (`idplace`, `name`, `address`, `pricing`, `iduser`) VALUES
+(1, 'Kafana Ona Moja', 'Bulevar kralja Aleksandra 191', '$$$$', 1);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2021-04-25 19:29:36
--- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
---
--- Host: localhost    Database: plan_my_night
--- ------------------------------------------------------
--- Server version	8.0.22
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `plan`
 --
 
 DROP TABLE IF EXISTS `plan`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `plan` (
-  `idplan` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `plan` (
+  `idplan` int(11) NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
-  `iduser` int NOT NULL,
+  `iduser` int(11) NOT NULL,
   PRIMARY KEY (`idplan`),
-  KEY `id_user_plan_idx` (`iduser`),
-  CONSTRAINT `id_user_plan` FOREIGN KEY (`iduser`) REFERENCES `user` (`iduser`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  KEY `id_user_plan_idx` (`iduser`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `plan`
 --
 
-LOCK TABLES `plan` WRITE;
-/*!40000 ALTER TABLE `plan` DISABLE KEYS */;
-/*!40000 ALTER TABLE `plan` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `plan` (`idplan`, `date`, `iduser`) VALUES
+(1, '2021-06-10', 1);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2021-04-25 19:29:37
--- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
---
--- Host: localhost    Database: plan_my_night
--- ------------------------------------------------------
--- Server version	8.0.22
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `plan_place`
 --
 
 DROP TABLE IF EXISTS `plan_place`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `plan_place` (
-  `idplan_place` int NOT NULL,
-  `idplan` int NOT NULL,
-  `idplace` int NOT NULL,
+CREATE TABLE IF NOT EXISTS `plan_place` (
+  `idplan_place` int(11) NOT NULL AUTO_INCREMENT,
+  `idplan` int(11) NOT NULL,
+  `idplace` int(11) NOT NULL,
   PRIMARY KEY (`idplan_place`),
   KEY `id_place_conn_idx` (`idplace`),
-  CONSTRAINT `id_place_conn` FOREIGN KEY (`idplace`) REFERENCES `place` (`idplace`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `id_plan_conn` FOREIGN KEY (`idplan`) REFERENCES `plan` (`idplan`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  KEY `id_plan_conn` (`idplan`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `plan_place`
 --
 
-LOCK TABLES `plan_place` WRITE;
-/*!40000 ALTER TABLE `plan_place` DISABLE KEYS */;
-/*!40000 ALTER TABLE `plan_place` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `plan_place` (`idplan_place`, `idplan`, `idplace`) VALUES
+(1, 1, 1);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2021-04-25 19:29:37
--- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
---
--- Host: localhost    Database: plan_my_night
--- ------------------------------------------------------
--- Server version	8.0.22
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `preferences`
 --
 
 DROP TABLE IF EXISTS `preferences`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `preferences` (
-  `iduser` int NOT NULL,
-  `musictype` varchar(150) DEFAULT NULL,
-  `money` int DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `preferences` (
+  `iduser` int(11) NOT NULL,
+  `musictype` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `money` int(11) DEFAULT NULL,
   `party_start` time NOT NULL,
   `party_end` time DEFAULT NULL,
-  `changelocation` int(10) unsigned zerofill NOT NULL,
-  PRIMARY KEY (`iduser`),
-  CONSTRAINT `id_user_pref` FOREIGN KEY (`iduser`) REFERENCES `user` (`iduser`) ON DELETE CASCADE ON UPDATE CASCADE
+  `changelocation` int(10) UNSIGNED ZEROFILL NOT NULL,
+  PRIMARY KEY (`iduser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `preferences`
 --
 
-LOCK TABLES `preferences` WRITE;
-/*!40000 ALTER TABLE `preferences` DISABLE KEYS */;
-/*!40000 ALTER TABLE `preferences` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `preferences` (`iduser`, `musictype`, `money`, `party_start`, `party_end`, `changelocation`) VALUES
+(1, 'live jazz', 12000, '20:20:00', '02:20:00', 0000000000);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2021-04-25 19:29:36
--- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
---
--- Host: localhost    Database: plan_my_night
--- ------------------------------------------------------
--- Server version	8.0.22
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `program`
 --
 
 DROP TABLE IF EXISTS `program`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `program` (
-  `idplace` int NOT NULL,
-  `monday` varchar(45) NOT NULL,
-  `tuesday` varchar(45) NOT NULL,
-  `wednesday` varchar(45) NOT NULL,
-  `thursday` varchar(45) NOT NULL,
-  `friday` varchar(45) NOT NULL,
-  `saturday` varchar(45) NOT NULL,
-  `sunday` varchar(45) NOT NULL,
+CREATE TABLE IF NOT EXISTS `program` (
+  `idplace` int(11) NOT NULL,
+  `monday` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tuesday` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wednesday` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `thursday` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `friday` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `saturday` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sunday` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
   `week_date` date NOT NULL,
   `work_time_start` time NOT NULL,
   `work_time_end` time NOT NULL,
-  `programcol` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idplace`),
-  CONSTRAINT `id_place_prog` FOREIGN KEY (`idplace`) REFERENCES `place` (`idplace`) ON DELETE CASCADE ON UPDATE CASCADE
+  `programcol` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`idplace`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `program`
 --
 
-LOCK TABLES `program` WRITE;
-/*!40000 ALTER TABLE `program` DISABLE KEYS */;
-/*!40000 ALTER TABLE `program` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `program` (`idplace`, `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`, `week_date`, `work_time_start`, `work_time_end`, `programcol`) VALUES
+(1, 'jazz', 'jazz', 'jazz', 'jazz', 'jazz', 'jazz', 'jazz', '2021-06-07', '20:00:00', '04:23:00', NULL);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2021-04-25 19:29:36
--- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
---
--- Host: localhost    Database: plan_my_night
--- ------------------------------------------------------
--- Server version	8.0.22
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `user`
 --
 
 DROP TABLE IF EXISTS `user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user` (
-  `iduser` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
-  `surname` varchar(45) NOT NULL,
-  `username` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `role` int(10) unsigned zerofill NOT NULL,
+CREATE TABLE IF NOT EXISTS `user` (
+  `iduser` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `surname` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` int(10) UNSIGNED ZEROFILL NOT NULL,
   PRIMARY KEY (`iduser`),
   UNIQUE KEY `username_UNIQUE` (`username`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `user` (`iduser`, `name`, `surname`, `username`, `password`, `email`, `role`) VALUES
+(1, 'Jovan', 'Ivkovic', 'joca', '123456', 'jovanivko@gmail.com', 0000000000);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `comment`
+--
+ALTER TABLE `comment`
+  ADD CONSTRAINT `id_place_comm` FOREIGN KEY (`idplace`) REFERENCES `place` (`idplace`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `id_user_comm` FOREIGN KEY (`iduser`) REFERENCES `user` (`iduser`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `mark`
+--
+ALTER TABLE `mark`
+  ADD CONSTRAINT `id_place_mark` FOREIGN KEY (`idplace`) REFERENCES `place` (`idplace`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `id_user_mark` FOREIGN KEY (`iduser`) REFERENCES `user` (`iduser`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `owner`
+--
+ALTER TABLE `owner`
+  ADD CONSTRAINT `id_user_owner` FOREIGN KEY (`iduser`) REFERENCES `user` (`iduser`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `place`
+--
+ALTER TABLE `place`
+  ADD CONSTRAINT `id_user_place` FOREIGN KEY (`iduser`) REFERENCES `owner` (`iduser`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `plan`
+--
+ALTER TABLE `plan`
+  ADD CONSTRAINT `id_user_plan` FOREIGN KEY (`iduser`) REFERENCES `user` (`iduser`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `plan_place`
+--
+ALTER TABLE `plan_place`
+  ADD CONSTRAINT `id_place_conn` FOREIGN KEY (`idplace`) REFERENCES `place` (`idplace`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `id_plan_conn` FOREIGN KEY (`idplan`) REFERENCES `plan` (`idplan`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `preferences`
+--
+ALTER TABLE `preferences`
+  ADD CONSTRAINT `id_user_pref` FOREIGN KEY (`iduser`) REFERENCES `user` (`iduser`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `program`
+--
+ALTER TABLE `program`
+  ADD CONSTRAINT `id_place_prog` FOREIGN KEY (`idplace`) REFERENCES `place` (`idplace`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2021-04-25 19:29:36
