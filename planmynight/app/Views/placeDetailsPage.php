@@ -54,6 +54,7 @@
                                     <br><br>
 
                                     <?php
+                                        echo "<h2>$name</h2>";
                                         echo "<h3>Address: $address</h3>";
                                     ?>
                                     

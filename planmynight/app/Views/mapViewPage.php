@@ -51,16 +51,18 @@
             
             function showPlaceInfo(street) {
                 street = street.toString();
-                street = street.substring(6);
 
                 <?php 
                     foreach($places as $place) {
-
+                        $id=$place->getIdplace();
                         $address = $place->getAddress();
                         $name = $place->getName();
                         $price = $place->getPricing();
+                        $address_data = explode(",", $address);
+                        $address_street = $address_data[0];
                 ?>
-                if (("<?=$address ?>").includes(street)) {
+
+                if (street.includes("<?=$address_street ?>")) {
  
                     var name = document.getElementById("name-place-card-mapview"); 
                     name.innerHTML = "<?=$name ?>";
@@ -70,13 +72,13 @@
                     
                     var price = document.getElementById("price-place-card-mapview"); 
                     price.innerHTML = "<?=$price ?>";
-
-                    
+                    document.getElementById("button-place-card-mapview").setAttribute("onclick","<?=base_url('PlaceView/index/'.$id)?>");
+                    document.getElementById("button-place-card-mapview").setAttribute("formaction","<?=base_url('PlaceView/index/'.$id)?>");
                 }
                 <?php 
                     }
                 ?>
-            } 
+            }
         }
     </script>
 
@@ -121,9 +123,11 @@
                     <h3 id="address-place-card-mapview" style="text-align: center"></h3>
                     <h4 id="price-place-card-mapview" style="text-align: center"></h4>
                     <br><br><br><br><br><br><br><br>
+                    <form action="" method="post">
                     <div class="card-footer bg-transparent">
-                        <button class="btn btn-login rounded-lg">See details</button>
+                        <button class="btn btn-login rounded-lg" id="button-place-card-mapview" type="submit">See details</button>
                     </div>
+                    </form>
                 </div>
             </div>
 

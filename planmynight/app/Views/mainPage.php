@@ -51,22 +51,23 @@
             
             function showPlaceInfo(street) {
                 street = street.toString();
-                street = street.substring(6);
 
                 <?php 
                     foreach($places as $place) {
-
                         $address = $place->getAddress();
                         $name = $place->getName();
                         $price = $place->getPricing();
+                        $address_data = explode(",", $address);
+                        $address_street = $address_data[0];
                 ?>
-                if (("<?=$address ?>").includes(street)) {
+
+                if (street.includes("<?=$address_street ?>")) {
  
                     var name = document.getElementById("name-place-card"); 
                     name.innerHTML = "<?=$name ?>";
                     
                     var address = document.getElementById("address-place-card"); 
-                    address.innerHTML = "<?=$address ?>";
+                    address.innerHTML = street;
                     
                     var price = document.getElementById("price-place-card"); 
                     price.innerHTML = "<?=$price ?>";
@@ -78,7 +79,7 @@
                 <?php 
                     }
                 ?>
-            } 
+            }
             
             //L.mapquest.directions().route({
             // start: '350 5th Ave, New York, NY 10118',

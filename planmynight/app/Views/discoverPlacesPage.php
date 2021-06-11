@@ -68,6 +68,7 @@
                     <?php 
                         $i = 0;
                         foreach ($places as $place) {
+                            $id=$place->getIdplace();
                             $name = $place->getName();
                             $address = $place->getAddress();
                             $price = $place->getPricing();
@@ -87,9 +88,11 @@
                                 echo "<h4>Pricing: $price</h4>";
                                 echo "<br><br><br><br>";
                             ?>
+                            <form action="" method="post">
                             <div class="card-footer bg-transparent">
-                                <button class="btn btn-login rounded-lg">See details</button>
+                                <button class="btn btn-login rounded-lg" type="submit" formaction="<?=base_url('PlaceView/index/'.$id)?>">See details</button>
                             </div>
+                            </form>
                         </div>
                     </div>
                     <?php 

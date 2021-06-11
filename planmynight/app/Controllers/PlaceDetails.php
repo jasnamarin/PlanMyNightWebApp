@@ -8,7 +8,9 @@ class PlaceDetails extends BaseController
     public function index($i)
     {   
         $address = $this->request->getVar('placeaddress'.$i);
-        echo view("placeDetailsPage", ['address'=>$address]);
+        $place = $this->doctrine->em->getRepository(Entities\Place::class)->findOneBy(['address'=>$address]);
+        $name=$place->getName();
+        echo view("placeDetailsPage", ['address'=>$address, 'name'=>$name]);
     }
     
     public function setProgram($address)

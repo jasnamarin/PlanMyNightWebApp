@@ -75,7 +75,7 @@ class Main extends BaseController
         $date = date('Y/m/d', time());
         $unixTimestamp = strtotime($date);
         $dayOfWeek = date("l", $unixTimestamp);
-
+        
         $possible = array();
         foreach ($places as $place) {
             $program = $this->doctrine->em->getRepository(Entities\Program::class)->findOneBy(['idplace'=>$place]);
