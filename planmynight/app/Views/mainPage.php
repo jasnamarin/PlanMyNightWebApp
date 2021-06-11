@@ -233,7 +233,7 @@
         <?php                         
             if ($error==="Change preferences.") {
                 echo "<br>";
-                echo "<p class='p-enhanced-text'>Change your preferences.</p>";
+                echo "<p class='p-enhanced-text'>There's no programs for you. Please, change your preferences.</p>";
             }
         ?>
         
